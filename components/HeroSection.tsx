@@ -4,7 +4,7 @@ import TwitterIcon from './TwitterIcon';
 import GithubIcon from './GithubIcon';
 import { TOKEN_SYMBOL, CA_PLACEHOLDER, TAGLINE, LINKS } from '@/lib/constants';
 
-const HERO_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4';
+const HERO_VIDEO = '/img/3d/first-footage.mp4';
 
 export default function HeroSection() {
   const [caCopied, setCaCopied] = useState(false);
