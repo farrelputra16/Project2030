@@ -77,10 +77,10 @@ export const FAQS = [
 
 export const TOKENOMICS = [
   { label: 'Total Supply', value: '69,000,000', pct: '100%' },
-  { label: 'Liquidity Pool', value: '48,300,000', pct: '70%', color: '#00ff88' },
-  { label: 'Community Airdrop', value: '10,350,000', pct: '15%', color: '#00cc6a' },
-  { label: 'Marketing & CEX', value: '6,900,000', pct: '10%', color: '#009955' },
-  { label: 'Team (Vested)', value: '3,450,000', pct: '5%', color: '#006633' },
+  { label: 'Liquidity Pool', value: 'TBD at launch', pct: '70%', color: '#00ff88' },
+  { label: 'Community & Airdrop', value: 'TBD at launch', pct: '15%', color: '#00cc6a' },
+  { label: 'Marketing & CEX', value: 'TBD at launch', pct: '10%', color: '#009955' },
+  { label: 'Team (Vested)', value: 'TBD at launch', pct: '5%', color: '#006633' },
 ];
 
 export const MISSION_FEATURES = [
