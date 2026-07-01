@@ -29,44 +29,51 @@ export default function PhantomBuyButton() {
       <button
         onClick={handleBuy}
         disabled={connecting}
-        className="liquid-glass-strong rounded-full px-8 py-4 text-base font-medium text-white flex items-center gap-3 hover:brightness-110 transition-all pulse-green disabled:opacity-50"
+        className="double-bezel-strong group disabled:opacity-40"
       >
-        {connecting ? (
-          <>
-            <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeDasharray="31.4 31.4" />
-            </svg>
-            Connecting...
-          </>
-        ) : isConnected ? (
-          <>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-            Buy {TOKEN_SYMBOL} with SOL
-          </>
-        ) : (
-          <>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            Connect Phantom
-          </>
-        )}
+        <div className="double-bezel-strong-inner px-7 py-3.5 flex items-center gap-3 text-sm font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97]">
+          {connecting ? (
+            <>
+              <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeDasharray="31.4 31.4" />
+              </svg>
+              Connecting...
+            </>
+          ) : isConnected ? (
+            <>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+              Buy {TOKEN_SYMBOL} with SOL
+              <span className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </span>
+            </>
+          ) : (
+            <>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              Connect Phantom
+            </>
+          )}
+        </div>
       </button>
       {isConnected && walletAddress && (
-        <div className="flex items-center gap-2 text-xs text-white/50 font-mono">
-          <span className="w-2 h-2 rounded-full bg-brand-green" />
+        <div className="flex items-center gap-2 text-xs text-white/30 font-mono">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
           {walletAddress.slice(0, 4)}...{walletAddress.slice(-4)}
-          <button onClick={disconnect} className="text-white/30 hover:text-white/60 transition-colors ml-1">
+          <button onClick={disconnect} className="text-white/20 hover:text-white/50 transition-colors ml-1 text-[11px]">
             Disconnect
           </button>
         </div>
       )}
       {!isInstalled && (
-        <p className="text-xs text-white/40 text-center">
+        <p className="text-xs text-white/30 text-center font-body font-light">
           Phantom not detected.{' '}
-          <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" className="text-brand-green underline">
+          <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" className="text-brand-green underline underline-offset-2">
             Install Phantom
           </a>
         </p>

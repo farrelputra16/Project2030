@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <meta name="description" content="PROJECT 2030 is a community-driven memecoin launching on Solana. One meme. One mission. The future is ours." />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

@@ -4,13 +4,12 @@ interface FadingVideoProps {
   src: string;
   className?: string;
   style?: React.CSSProperties;
-  overlay?: boolean;
 }
 
 const FADE_MS = 500;
 const FADE_OUT_LEAD = 0.55;
 
-export default function FadingVideo({ src, className, style, overlay = false }: FadingVideoProps) {
+export default function FadingVideo({ src, className, style }: FadingVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const rAFRef = useRef<number | null>(null);
   const fadingOutRef = useRef(false);
@@ -83,7 +82,6 @@ export default function FadingVideo({ src, className, style, overlay = false }: 
       >
         <source src={src} type="video/mp4" />
       </video>
-      {overlay && <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.6)' }} />}
     </div>
   );
 }
