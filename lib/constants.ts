@@ -1,7 +1,7 @@
 export const SITE_NAME = 'PROJECT 2030';
 export const TAGLINE = 'ONE MEME. ONE MISSION. THE FUTURE IS OURS.';
 export const TOKEN_SYMBOL = '$2030';
-export const TOTAL_SUPPLY = 69_000_000;
+export const TOTAL_SUPPLY = 1_000_000_000;
 
 export const LINKS = {
   twitter: 'https://twitter.com/project2030',
@@ -43,8 +43,8 @@ export const BUY_STEPS = [
   },
   {
     step: '04',
-    title: 'Buy $2030',
-    desc: 'Set the amount of SOL you want to swap and confirm the transaction in Phantom. You now hold PROJECT 2030 tokens!',
+    title: 'Buy with Phantom',
+    desc: 'Buy $2030 directly via Phantom extension. Connect your wallet and swap SOL for $2030 in seconds.',
   },
 ];
 
@@ -63,7 +63,7 @@ export const FAQS = [
   },
   {
     q: 'What is the total supply?',
-    a: 'The total supply is 69,000,000 $2030 tokens. 70% goes to liquidity, 15% community airdrops, 10% marketing/CEX listings, and 5% team (vested).',
+    a: 'The total supply is 1,000,000,000 $2030 tokens. 100% goes to liquidity pool at launch. No presale, no team allocation.',
   },
   {
     q: 'Is the contract renounced?',
@@ -76,11 +76,8 @@ export const FAQS = [
 ];
 
 export const TOKENOMICS = [
-  { label: 'Total Supply', value: '69,000,000', pct: '100%' },
-  { label: 'Liquidity Pool', value: 'TBD at launch', pct: '70%', color: '#00ff88' },
-  { label: 'Community & Airdrop', value: 'TBD at launch', pct: '15%', color: '#00cc6a' },
-  { label: 'Marketing & CEX', value: 'TBD at launch', pct: '10%', color: '#009955' },
-  { label: 'Team (Vested)', value: 'TBD at launch', pct: '5%', color: '#006633' },
+  { label: 'Total Supply', value: '1,000,000,000', pct: '100%' },
+  { label: 'Liquidity Pool', value: '100% at launch', pct: '100%', color: '#00ff88' },
 ];
 
 export const MISSION_FEATURES = [

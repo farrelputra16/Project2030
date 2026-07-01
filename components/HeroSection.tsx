@@ -1,58 +1,110 @@
-import { motion } from 'framer-motion';
-import Navbar from './Navbar';
-import HeroSlider from './HeroSlider';
-import { TOKEN_SYMBOL } from '@/lib/constants';
+import { useState } from 'react';
+import { Mail } from 'lucide-react';
+import TwitterIcon from './TwitterIcon';
+import GithubIcon from './GithubIcon';
+import { TOKEN_SYMBOL, CA_PLACEHOLDER, TAGLINE, LINKS } from '@/lib/constants';
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 32, filter: 'blur(8px)' },
-  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  transition: { duration: 0.9, ease: [0.32, 0.72, 0, 1], delay },
-});
-
-interface PumpStatProps {
-  label: string;
-  value: string;
-  sub?: string;
-  color?: string;
-}
-
-function PumpStat({ label, value, sub, color }: PumpStatProps) {
-  return (
-    <div className="double-bezel">
-      <div className="double-bezel-inner px-4 py-3 min-w-[120px] text-center">
-        <div className="text-[10px] font-body font-medium text-white/30 tracking-wide uppercase mb-1">{label}</div>
-        <div className="font-heading italic text-xl tracking-tight" style={{ color: color || '#00ff88' }}>{value}</div>
-        {sub && <div className="text-[10px] text-white/20 font-body mt-0.5">{sub}</div>}
-      </div>
-    </div>
-  );
-}
+const HERO_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4';
 
 export default function HeroSection() {
+  const [caCopied, setCaCopied] = useState(false);
+
+  const copyCa = () => {
+    navigator.clipboard?.writeText(CA_PLACEHOLDER);
+    setCaCopied(true);
+    setTimeout(() => setCaCopied(false), 2000);
+  };
+
   return (
-    <section id="home" className="relative min-h-[100dvh] overflow-hidden bg-oled">
-      <div className="mesh-glow-1 absolute inset-0 z-[1] pointer-events-none" />
-      <div className="scanline absolute inset-0 z-[1] pointer-events-none" />
+    <section id="home" className="relative min-h-screen overflow-hidden rounded-b-[32px]">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src={HERO_VIDEO}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
 
-      <Navbar />
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8">
+        <div className="w-full max-w-[1831px] mx-auto">
+          <div className="lg:ml-32 max-w-[780px]">
+            <h1 className="font-grotesk uppercase leading-[1.05] lg:leading-[1] text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] text-cream text-left">
+              PROJECT 2030
+              <br />
+              <span className="relative inline-block">
+                One Meme.
+                <span className="font-condiment text-neon text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] absolute -top-2 -right-4 sm:-right-6 lg:-right-8 -rotate-1 mix-blend-exclusion opacity-90 normal-case whitespace-nowrap">
+                  The Future
+                </span>
+              </span>
+              <br />
+              One Mission.
+            </h1>
 
-      <HeroSlider />
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#how-to-buy"
+                className="font-grotesk text-sm uppercase tracking-wider px-6 py-3 bg-neon text-black rounded-lg hover:bg-white transition-all duration-300"
+              >
+                Buy {TOKEN_SYMBOL}
+              </a>
+              <button
+                onClick={copyCa}
+                className="flex items-center gap-2 px-4 py-3 liquid-glass rounded-lg hover:bg-white/5 transition-all duration-300"
+              >
+                <span className="text-[10px] font-mono text-cream/50 uppercase tracking-wider">CA</span>
+                <code className="text-xs font-mono text-neon/70 max-w-[200px] truncate">
+                  {CA_PLACEHOLDER}
+                </code>
+                <span className="text-[10px] font-mono text-cream/40">
+                  {caCopied ? 'Copied' : 'Copy'}
+                </span>
+              </button>
+            </div>
 
-      <div className="absolute bottom-6 left-0 right-0 z-10 px-4">
-        <div className="flex flex-wrap items-center justify-center gap-3 max-w-2xl mx-auto">
-          <motion.div {...fadeUp(0.3)}>
-            <PumpStat label="Supply" value="69M" sub="Total" />
-          </motion.div>
-          <motion.div {...fadeUp(0.4)}>
-            <PumpStat label="Market Cap" value="TBD" sub="Coming Soon" color="#ffffff" />
-          </motion.div>
-          <motion.div {...fadeUp(0.5)}>
-            <PumpStat label="Price" value="—" sub="Launching on PumpFun" color="#ffffff" />
-          </motion.div>
-          <motion.div {...fadeUp(0.6)}>
-            <PumpStat label="Liquidity" value="Locked" sub="100%" />
-          </motion.div>
+            <p className="font-mono text-[13px] sm:text-[14px] text-cream/50 uppercase tracking-wider mt-6 text-left max-w-[266px] leading-relaxed">
+              {TAGLINE}
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div className="hidden lg:flex flex-col gap-3 absolute top-32 right-6 xl:right-12 z-20">
+        {[
+          { icon: Mail, href: `mailto:hello@project2030.xyz` },
+          { icon: TwitterIcon, href: LINKS.twitter },
+          { icon: GithubIcon, href: LINKS.telegram },
+        ].map((Item, i) => (
+          <a
+            key={i}
+            href={Item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass w-14 h-14 rounded-[1rem] flex items-center justify-center text-cream/70 hover:bg-white/10 transition-colors duration-300"
+          >
+            <Item.icon size={20} />
+          </a>
+        ))}
+      </div>
+
+      <div className="flex lg:hidden justify-center gap-3 pb-10 z-20 relative">
+        {[
+          { icon: Mail, href: `mailto:hello@project2030.xyz` },
+          { icon: TwitterIcon, href: LINKS.twitter },
+          { icon: GithubIcon, href: LINKS.telegram },
+        ].map((Item, i) => (
+          <a
+            key={i}
+            href={Item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass w-14 h-14 rounded-[1rem] flex items-center justify-center text-cream/70 hover:bg-white/10 transition-colors duration-300"
+          >
+            <Item.icon size={20} />
+          </a>
+        ))}
       </div>
     </section>
   );
