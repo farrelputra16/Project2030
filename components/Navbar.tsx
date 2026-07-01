@@ -15,7 +15,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-6 px-4">
         <div className="double-bezel">
-          <div className="double-bezel-inner px-5 py-3 flex items-center gap-6">
+          <div className="double-bezel-glass px-5 py-3 flex items-center gap-6">
             <a href="#home" className="flex items-center gap-2 shrink-0">
               <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center">
                 <span className="font-heading italic text-brand-green text-sm">P</span>
@@ -40,7 +40,7 @@ export default function Navbar() {
                 href="#how-to-buy"
                 className="double-bezel-strong group"
               >
-                <div className="double-bezel-strong-inner px-4 py-2 flex items-center gap-2 text-sm font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97]">
+                <div className="double-bezel-glass-strong px-4 py-2 flex items-center gap-2 text-sm font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97]">
                   <span>Buy {TOKEN_SYMBOL}</span>
                   <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -100,7 +100,7 @@ export default function Navbar() {
                 {...staggerItem(NAV_ITEMS.length)}
                 className="mt-8 double-bezel-strong group"
               >
-                <div className="double-bezel-strong-inner px-8 py-4 flex items-center gap-3 text-lg font-semibold text-white">
+                <div className="double-bezel-glass-strong px-8 py-4 flex items-center gap-3 text-lg font-semibold text-white">
                   Buy {TOKEN_SYMBOL}
                   <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
