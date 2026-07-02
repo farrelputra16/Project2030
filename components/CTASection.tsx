@@ -3,8 +3,22 @@ import { Mail } from 'lucide-react';
 import TwitterIcon from './TwitterIcon';
 import GithubIcon from './GithubIcon';
 import { LINKS, SITE_NAME, FAQS } from '@/lib/constants';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const CTA_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055729_72d66327-b59e-4ae9-bb70-de6ccb5ecdb0.mp4';
+
+function RevealWrapper({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function CTASection() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -60,47 +74,57 @@ export default function CTASection() {
         </div>
       </section>
 
-      <section id="faq" className="bg-[#050505] py-16 md:py-24 border-t border-white/5">
-        <div className="max-w-[1831px] mx-auto px-6 md:px-8">
-          <h2 className="font-grotesk uppercase text-[32px] md:text-[48px] text-cream text-center mb-12">
-            FAQ
-          </h2>
+      <section id="faq" className="bg-[#050505] py-16 md:py-24 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-neon/3 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }} />
+        </div>
+        <div className="max-w-[1831px] mx-auto px-6 md:px-8 relative z-10">
+          <RevealWrapper>
+            <h2 className="font-grotesk uppercase text-[32px] md:text-[48px] text-cream text-center mb-12">
+              FAQ
+            </h2>
+          </RevealWrapper>
 
           <div className="max-w-3xl mx-auto space-y-3">
             {FAQS.map((faq, i) => (
-              <div key={i} className="liquid-glass rounded-[20px] overflow-hidden">
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left"
-                >
-                  <span className="font-mono text-sm uppercase text-cream/80 tracking-wide pr-4">
-                    {faq.q}
-                  </span>
-                  <svg
-                    className={`w-4 h-4 text-neon shrink-0 transition-transform duration-300 ${openFAQ === i ? 'rotate-180' : ''}`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
+              <RevealWrapper key={i} delay={i * 100}>
+                <div className="liquid-glass rounded-[20px] overflow-hidden hover:border hover:border-white/[0.03] transition-all duration-500">
+                  <button
+                    onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
+                    className="w-full flex items-center justify-between px-6 py-5 text-left group"
                   >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </button>
-                {openFAQ === i && (
-                  <div className="px-6 pb-5">
-                    <p className="font-mono text-xs text-cream/50 leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </div>
-                )}
-              </div>
+                    <span className="font-mono text-sm uppercase text-cream/80 tracking-wide pr-4 group-hover:text-neon transition-colors duration-300">
+                      {faq.q}
+                    </span>
+                    <svg
+                      className={`w-4 h-4 text-neon shrink-0 transition-all duration-300 ${openFAQ === i ? 'rotate-180' : ''}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  {openFAQ === i && (
+                    <div className="px-6 pb-5">
+                      <p className="font-mono text-xs text-cream/50 leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </RevealWrapper>
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="bg-[#050505] border-t border-white/5 py-8">
-        <div className="max-w-[1831px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="bg-[#050505] border-t border-white/5 py-8 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 w-[300px] h-[300px] bg-neon/2 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '6s' }} />
+        </div>
+        <div className="max-w-[1831px] mx-auto px-6 md:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-grotesk text-sm uppercase text-cream/50">
             {SITE_NAME}
           </div>

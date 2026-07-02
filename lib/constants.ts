@@ -21,6 +21,7 @@ export const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
   { label: 'Mission', href: '#mission' },
   { label: 'How to Buy', href: '#how-to-buy' },
+  { label: 'Roadmap', href: '#roadmap' },
   { label: 'Tokenomics', href: '#tokenomics' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -38,13 +39,8 @@ export const BUY_STEPS = [
   },
   {
     step: '03',
-    title: 'Go to PumpFun',
-    desc: 'Visit pump.fun and connect your Phantom wallet. Search for PROJECT 2030 ($2030) in the live tokens section.',
-  },
-  {
-    step: '04',
-    title: 'Buy with Phantom',
-    desc: 'Buy $2030 directly via Phantom extension. Connect your wallet and swap SOL for $2030 in seconds.',
+    title: 'Buy $2030',
+    desc: 'Visit pump.fun and connect your Phantom wallet. Search for PROJECT 2030 ($2030) and swap SOL for tokens.',
   },
 ];
 
@@ -78,6 +74,52 @@ export const FAQS = [
 export const TOKENOMICS = [
   { label: 'Total Supply', value: '1,000,000,000', pct: '100%' },
   { label: 'Liquidity Pool', value: '100% at launch', pct: '100%', color: '#00ff88' },
+];
+
+export const STATS = [
+  { label: 'Community Army', target: 10000, suffix: '+' },
+  { label: 'Total Supply', target: 1000000000, suffix: '' },
+  { label: 'Fair Launch', target: 100, suffix: '%' },
+  { label: 'Mission Year', target: 2030, suffix: '' },
+];
+
+export const ROADMAP = [
+  {
+    year: '2025 Q2',
+    title: 'Fair Launch on PumpFun',
+    desc: 'Token goes live on PumpFun with 100% liquidity. No presale, no team allocation. Contract renounced at launch.',
+    status: 'current' as const,
+  },
+  {
+    year: '2025 Q3',
+    title: 'Community Expansion',
+    desc: 'Grow the army across Twitter, Telegram, and Discord. First community contests and meme campaigns.',
+    status: 'upcoming' as const,
+  },
+  {
+    year: '2026',
+    title: 'NFT Collection Drop',
+    desc: 'Exclusive PROJECT 2030 NFT collection for holders. Unlock perks, governance weight, and merch access.',
+    status: 'upcoming' as const,
+  },
+  {
+    year: '2027',
+    title: 'DAO & Governance',
+    desc: 'Decentralized autonomous organization. Token holders vote on treasury allocation, partnerships, and roadmap priorities.',
+    status: 'upcoming' as const,
+  },
+  {
+    year: '2028',
+    title: 'Charity & Real-World Impact',
+    desc: 'On-chain charitable initiatives voted by the community. Transparency-backed donations with verifiable impact.',
+    status: 'upcoming' as const,
+  },
+  {
+    year: '2030',
+    title: 'The Moon',
+    desc: 'Full ecosystem maturity. Merchandise, events, partnerships, and a thriving self-sustaining community.',
+    status: 'upcoming' as const,
+  },
 ];
 
 export const MISSION_FEATURES = [

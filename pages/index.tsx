@@ -2,6 +2,9 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import NFTCardGrid from '@/components/NFTCardGrid';
+import StatsSection from '@/components/StatsSection';
+import RoadmapSection from '@/components/RoadmapSection';
+import MarqueeTicker from '@/components/MarqueeTicker';
 import CTASection from '@/components/CTASection';
 
 export default function Home() {
@@ -21,8 +24,11 @@ export default function Home() {
       </div>
       <Navbar />
       <HeroSection />
+      <MarqueeTicker />
       <AboutSection />
+      <StatsSection />
       <NFTCardGrid />
+      <RoadmapSection />
       <CTASection />
     </div>
   );
