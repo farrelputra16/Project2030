@@ -2,7 +2,7 @@ const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
   { label: 'Mission', href: '#mission' },
   { label: 'How to Buy', href: '#how-to-buy' },
-  { label: 'Tokenomics', href: '#tokenomics' },
+  { label: 'Roadmap', href: '#roadmap' },
   { label: 'FAQ', href: '#faq' },
 ];
 

@@ -6,6 +6,7 @@ import StatsSection from '@/components/StatsSection';
 import RoadmapSection from '@/components/RoadmapSection';
 import MarqueeTicker from '@/components/MarqueeTicker';
 import CTASection from '@/components/CTASection';
+import ClosingSection from '@/components/ClosingSection';
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <NFTCardGrid />
       <RoadmapSection />
       <CTASection />
+      <ClosingSection />
     </div>
   );
 }

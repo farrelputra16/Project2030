@@ -24,6 +24,7 @@ export const NAV_ITEMS = [
   { label: 'Roadmap', href: '#roadmap' },
   { label: 'Tokenomics', href: '#tokenomics' },
   { label: 'FAQ', href: '#faq' },
+  { label: 'Closing', href: '#closing' },
 ];
 
 export const BUY_STEPS = [
@@ -67,7 +68,7 @@ export const FAQS = [
   },
   {
     q: 'What makes PROJECT 2030 different?',
-    a: 'We combine the power of memes with real community building. Our roadmap includes milestones leading to 2030, with NFT collections, merchandise, DAO governance, and charitable initiatives.',
+    a: 'We combine the power of memes with real community building. Our roadmap includes milestones leading to 2030, with KOL partnerships, CEX listings, and charitable initiatives.',
   },
 ];
 
@@ -98,14 +99,14 @@ export const ROADMAP = [
   },
   {
     year: '2026',
-    title: 'NFT Collection Drop',
-    desc: 'Exclusive PROJECT 2030 NFT collection for holders. Unlock perks, governance weight, and merch access.',
+    title: 'Caller & KOL Onboarding',
+    desc: 'Massive influencer campaign. Partner with top crypto callers and key opinion leaders to amplify reach and drive community growth.',
     status: 'upcoming' as const,
   },
   {
     year: '2027',
-    title: 'DAO & Governance',
-    desc: 'Decentralized autonomous organization. Token holders vote on treasury allocation, partnerships, and roadmap priorities.',
+    title: 'CEX Listings',
+    desc: 'Community-driven exchange listing push. Vote and rally for centralized exchange listings to increase liquidity and accessibility.',
     status: 'upcoming' as const,
   },
   {
